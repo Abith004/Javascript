@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <title>Lottery Ticket Winner</title>
+</head>
+<body>
+    <div class="container text-center "  >
+        <h1 class=" mt-4 text-center" style="color:blueviolet ;">LOTTERY TICKET WINNER</h1>
+        <button type="button" class="btn btn-danger mt-5" onclick="lotterywinner()">WINNER?</button>
+
+        
+        <p class="mt-2">The Winner is Lottery number: <span id="winnerlotterynumberHTML" style="color:red;"></span></p>
+
+        
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Lottery Draw Winner</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>The Winner is Lottery number: <span style="font-size: x-large;" id="winnerNumber"></span></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let numbers = [10011, 10022, 10033, 10044, 10055, 10066, 10077, 10088, 10099,10000];
+
+        function lotterywinner() {
+            let winner = numbers[Math.floor(Math.random() * 10)];
+            console.log(winner); 
+            
+            
+            document.getElementById("winnerNumber").innerHTML = winner; 
+            document.getElementById("winnerlotterynumberHTML").innerHTML = winner; 
+
+            $("#myModal").modal("show"); 
+        }
+    </script>
+</body>
+</html>

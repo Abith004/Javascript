@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <title>CACULATOR</title>
+    <style>
+        body {
+           
+            text-align: center;
+            margin-top: 100px;
+        }
+        input, select {
+            margin: 5px;
+            padding: 8px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>CALCULATOR</h1>
+    <input type="number" id="number1" placeholder="Enter a number"> <br>
+    <input type="number" id="number2" placeholder="Enter a number"> <br>
+    <select id="operators"> 
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        
+    </select>
+    <button onclick="calculate()" style="font-size:large;">=</button>
+    <h2 id="result"></h2>
+    
+    <script>
+        function calculate() {
+            let num1 = parseFloat(document.getElementById("number1").value);
+            let num2 = parseFloat(document.getElementById("number2").value);
+            let operator = document.getElementById("operators").value;
+            let result;
+
+            if (operator === "+") {
+                result = num1 + num2;
+            } else if (operator === "-") {
+                result = num1 - num2;
+            } else if (operator === "*") {
+                result = num1 * num2;
+            } else if (operator === "/") {
+                result = num2 !== 0 ? num1 / num2 : "not divided by zero"; 
+            }
+            else  {
+                result="ERROR"
+            }
+             
+            document.getElementById("result").innerText = "The Answer is : " + result;
+        }
+    </script>
+</body>
+</html>
